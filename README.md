@@ -1,10 +1,3 @@
-# Clean React Boilerplate With Yarn
+# Marvel Characters
 
-## Your README here.
-
-## Usage
-
-1. `git clone https://github.com/TinoMuzambi/CleanReactBoilerplate .`
-2. `rm -rf .git`
-3. `git init`
-4. `yarn`
+Using the Marvel API to pull details about Marvel characters.
