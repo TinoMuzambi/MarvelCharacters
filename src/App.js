@@ -47,6 +47,7 @@ const App = () => {
 	return (
 		<>
 			<main>
+				<h1 className="title">Marvel Characters</h1>
 				<section className="cards">
 					{characters.map((character) => (
 						<div className="card" key={character.id}>

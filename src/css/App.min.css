@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
 *,
 *::before,
 *::after {
@@ -8,7 +9,7 @@
 }
 
 body {
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
   padding: 0 1rem;
 }
 
@@ -24,6 +25,15 @@ main {
       -ms-flex-align: center;
           align-items: center;
   gap: 2rem;
+}
+
+main .title {
+  font-size: 5vw;
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(black, skyblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 5px 5px rgba(135, 206, 235, 0.4);
 }
 
 main .cards {
