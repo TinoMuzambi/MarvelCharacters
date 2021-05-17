@@ -13,9 +13,10 @@ const App = () => {
 						process.env.REACT_APP_MARVEL_KEY +
 						process.env.REACT_APP_MARVEL_PUBLIC_KEY
 				);
+				const limit = 100;
 
 				const data = await fetch(
-					`http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${key}&hash=${hash}`
+					`http://gateway.marvel.com/v1/public/characters?limit=${limit}&ts=${ts}&apikey=${key}&hash=${hash}`
 				);
 				const res = await data.json();
 				setCharacters(res.data.results);
@@ -23,7 +24,7 @@ const App = () => {
 				console.error(error);
 			}
 		};
-		// getData();
+		getData();
 	}, []);
 
 	if (!characters) return;
