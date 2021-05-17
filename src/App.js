@@ -3,7 +3,7 @@ import md5 from "md5";
 
 const App = () => {
 	const [characters, setCharacters] = useState([]);
-	const [limit, setLimit] = useState(100);
+	const [offset, setOffset] = useState(0);
 	useEffect(() => {
 		const getData = async () => {
 			try {
@@ -16,7 +16,7 @@ const App = () => {
 				);
 
 				const data = await fetch(
-					`http://gateway.marvel.com/v1/public/characters?limit=${limit}&ts=${ts}&apikey=${key}&hash=${hash}`
+					`http://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
 				);
 				const res = await data.json();
 				setCharacters(res.data.results);
@@ -25,7 +25,16 @@ const App = () => {
 			}
 		};
 		// getData();
-	}, [limit]);
+	}, [offset]);
+
+	const prevPage = () => {
+		if (offset === 0) return;
+		setOffset(offset - 100);
+	};
+	const nextPage = () => {
+		// if (offset === 100) return
+		setOffset(offset + 100);
+	};
 
 	if (!characters) return;
 
@@ -48,8 +57,8 @@ const App = () => {
 							</a>
 						</div>
 					))}
-					<button>Prev Page</button>
-					<button>Next Page</button>
+					<button onClick={prevPage}>Prev Page</button>
+					<button onClick={nextPage}>Next Page</button>
 				</section>
 			</main>
 			<footer>Data provided by Marvel. © 2014 Marvel</footer>
