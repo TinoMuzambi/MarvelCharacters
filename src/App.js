@@ -87,7 +87,11 @@ const App = () => {
 				</section>
 				<div className="buttons">
 					<button onClick={prevPage}>Prev Page</button>
-					<button onClick={nextPage} disabled={nextDisabled}>
+					<button
+						className={nextDisabled && "disabled"}
+						onClick={nextPage}
+						disabled={nextDisabled}
+					>
 						Next Page
 					</button>
 				</div>

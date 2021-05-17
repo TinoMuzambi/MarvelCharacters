@@ -209,6 +209,11 @@ main .buttons button:focus, main .buttons button:hover {
           transform: scale(0.9);
 }
 
+main .buttons button.disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
 img {
   max-width: 100%;
   -o-object-fit: cover;
