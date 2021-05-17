@@ -12,6 +12,7 @@ const App = () => {
 
 	useEffect(() => {
 		getData();
+		// eslint-disable-next-line
 	}, [offset]);
 
 	const getData = async () => {
