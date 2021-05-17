@@ -21,7 +21,7 @@ const App = () => {
 				);
 
 				const data = await fetch(
-					`http://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
+					`https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
 				);
 				const res = await data.json();
 				setCharacters(res.data.results);
