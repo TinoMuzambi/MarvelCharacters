@@ -48,6 +48,8 @@ const App = () => {
 							</a>
 						</div>
 					))}
+					<button>Prev Page</button>
+					<button>Next Page</button>
 				</section>
 			</main>
 			<footer>Data provided by Marvel. © 2014 Marvel</footer>
