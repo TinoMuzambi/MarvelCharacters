@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import md5 from "md5";
 
+import "./css/App.min.css";
+
 const App = () => {
 	const [characters, setCharacters] = useState([]);
 	const [fetching, setFetching] = useState(true);
@@ -27,7 +29,7 @@ const App = () => {
 				console.error(error);
 			}
 		};
-		getData();
+		// getData();
 	}, [offset]);
 
 	const prevPage = () => {

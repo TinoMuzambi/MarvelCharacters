@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,CAAC;AACD,CAAC,AAAA,QAAQ;AACT,CAAC,AAAA,OAAO,CAAC;EACR,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,UAAU;CACtB;;AAED,AAAA,IAAI,CAAC;EACJ,UAAU,EAAE,GAAG;CACf",
+    "sources": [
+        "../sass/App.scss",
+        "../sass/_base.scss"
+    ],
+    "names": [],
+    "file": "App.min.css"
+}
