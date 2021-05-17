@@ -24,16 +24,18 @@ const App = () => {
 				console.error(error);
 			}
 		};
-		// getData();
+		getData();
 	}, [offset]);
 
 	const prevPage = () => {
 		if (offset === 0) return;
 		setOffset(offset - 100);
+		document.body.scrollIntoView({ behavior: "smooth" });
 	};
 	const nextPage = () => {
 		// if (offset === 100) return
 		setOffset(offset + 100);
+		document.body.scrollIntoView({ behavior: "smooth" });
 	};
 
 	if (!characters) return;
