@@ -58,7 +58,7 @@ const App = () => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		getData(query);
+		getData();
 	};
 
 	if (fetching)
