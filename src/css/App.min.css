@@ -113,6 +113,14 @@ main form input {
   outline: none;
 }
 
+main form select {
+  border: solid 2px black;
+  outline: none;
+  margin-left: 1rem;
+  border-radius: 1000px;
+  padding: 0.4rem 0.3rem;
+}
+
 main form button {
   border: none;
   outline: none;

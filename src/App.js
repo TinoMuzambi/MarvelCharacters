@@ -10,6 +10,7 @@ const App = () => {
 	const [offset, setOffset] = useState(0);
 	const [nextDisabled, setNextDisabled] = useState(false);
 	const [query, setQuery] = useState("");
+	const [sortDir, setSortDir] = useState("asc");
 
 	useEffect(() => {
 		getData();
@@ -27,13 +28,14 @@ const App = () => {
 					process.env.REACT_APP_MARVEL_KEY +
 					process.env.REACT_APP_MARVEL_PUBLIC_KEY
 			);
+			const orderBy = sortDir === "asc" ? "name" : "-name";
 
 			const data = query
 				? await fetch(
-						`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
+						`https://gateway.marvel.com/v1/public/characters?orderBy=${orderBy}&nameStartsWith=${query}&limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
 				  )
 				: await fetch(
-						`https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
+						`https://gateway.marvel.com/v1/public/characters?orderBy=${orderBy}&limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
 				  );
 
 			const res = await data.json();
@@ -61,7 +63,6 @@ const App = () => {
 	const submitHandler = (e) => {
 		e.preventDefault();
 		getData();
-		setQuery("");
 	};
 
 	if (fetching)
@@ -83,6 +84,10 @@ const App = () => {
 						value={query}
 						onChange={(e) => setQuery(e.target.value)}
 					/>
+					<select value={sortDir} onChange={(e) => setSortDir(e.target.value)}>
+						<option value="asc">asc</option>
+						<option value="desc">desc</option>
+					</select>
 					<button type="submit">Search</button>
 				</form>
 				<section className="cards">

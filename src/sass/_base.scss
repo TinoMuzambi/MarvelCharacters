@@ -105,6 +105,14 @@ main {
 			outline: none;
 		}
 
+		select {
+			border: solid 2px $primary-color;
+			outline: none;
+			margin-left: 1rem;
+			border-radius: 1000px;
+			padding: 0.4rem 0.3rem;
+		}
+
 		button {
 			@include button;
 		}
