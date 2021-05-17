@@ -49,6 +49,10 @@ const App = () => {
 		setOffset(offset + 100);
 	};
 
+	const submitHandler = (e) => {
+		e.preventDefault();
+	};
+
 	if (fetching)
 		return (
 			<div className="spinner flex">
@@ -60,7 +64,7 @@ const App = () => {
 		<>
 			<main>
 				<h1 className="title">Marvel Characters</h1>
-				<form>
+				<form onSubmit={submitHandler}>
 					<input
 						type="text"
 						id=""

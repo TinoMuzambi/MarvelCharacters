@@ -127,7 +127,7 @@ main form button {
   margin: 0 1rem;
 }
 
-main form button:focus, main form button:hover {
+main form button:hover {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -237,7 +237,7 @@ main .buttons button {
   margin: 0 1rem;
 }
 
-main .buttons button:focus, main .buttons button:hover {
+main .buttons button:hover {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }

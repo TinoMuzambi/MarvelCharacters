@@ -15,7 +15,6 @@ $text-color: white;
 	transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	margin: 0 1rem;
 
-	&:focus,
 	&:hover {
 		transform: scale(0.9);
 	}
