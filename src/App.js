@@ -11,10 +11,10 @@ const App = () => {
 	const [query, setQuery] = useState("");
 
 	useEffect(() => {
-		// getData();
+		getData();
 	}, [offset]);
 
-	const getData = async (query = "") => {
+	const getData = async () => {
 		setFetching(true);
 		try {
 			const ts = 1;
@@ -25,9 +25,14 @@ const App = () => {
 					process.env.REACT_APP_MARVEL_PUBLIC_KEY
 			);
 
-			const data = await fetch(
-				`https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
-			);
+			const data = query
+				? await fetch(
+						`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
+				  )
+				: await fetch(
+						`https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
+				  );
+
 			const res = await data.json();
 			setCharacters(res.data.results);
 			if (!res.data.results.length) {
@@ -52,6 +57,7 @@ const App = () => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
+		getData(query);
 	};
 
 	if (fetching)
