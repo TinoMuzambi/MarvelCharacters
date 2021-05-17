@@ -24,7 +24,7 @@ const App = () => {
 				console.error(error);
 			}
 		};
-		getData();
+		// getData();
 	}, []);
 
 	if (!characters) return;
@@ -35,7 +35,11 @@ const App = () => {
 				<section className="cards">
 					{characters.map((character) => (
 						<div className="card" key={character.id}>
-							{character.name}
+							<h2 className="name">{character.name}</h2>
+							<img
+								src={character.thumbnail.path + ".jpg"}
+								alt={character.name}
+							/>
 						</div>
 					))}
 				</section>
