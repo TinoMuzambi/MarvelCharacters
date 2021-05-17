@@ -22,7 +22,7 @@ const App = () => {
 				console.error(error);
 			}
 		};
-		getData();
+		// getData();
 	}, []);
 
 	return "Clean React Boilerplate";
