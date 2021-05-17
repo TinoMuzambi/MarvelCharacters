@@ -68,7 +68,11 @@ const App = () => {
 								{character.description || "No description provided"}
 							</p>
 							<span className="wrap">
-								<a href={character?.urls[1]?.url} className="link">
+								<a
+									href={character?.urls[1]?.url}
+									className="link"
+									target="__blank"
+								>
 									Read More
 								</a>
 							</span>
