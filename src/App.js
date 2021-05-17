@@ -3,6 +3,7 @@ import md5 from "md5";
 
 const App = () => {
 	const [characters, setCharacters] = useState([]);
+	const [limit, setLimit] = useState(100);
 	useEffect(() => {
 		const getData = async () => {
 			try {
@@ -13,7 +14,6 @@ const App = () => {
 						process.env.REACT_APP_MARVEL_KEY +
 						process.env.REACT_APP_MARVEL_PUBLIC_KEY
 				);
-				const limit = 100;
 
 				const data = await fetch(
 					`http://gateway.marvel.com/v1/public/characters?limit=${limit}&ts=${ts}&apikey=${key}&hash=${hash}`
@@ -25,7 +25,7 @@ const App = () => {
 			}
 		};
 		// getData();
-	}, []);
+	}, [limit]);
 
 	if (!characters) return;
 
