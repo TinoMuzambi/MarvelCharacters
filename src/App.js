@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import md5 from "md5";
 
 const App = () => {
+	const [characters, setCharacters] = useState([]);
 	useEffect(() => {
 		const getData = async () => {
 			try {
@@ -17,13 +18,15 @@ const App = () => {
 					`http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${key}&hash=${hash}`
 				);
 				const res = await data.json();
-				console.log(res.data);
+				setCharacters(res.data.results);
 			} catch (error) {
 				console.error(error);
 			}
 		};
 		// getData();
 	}, []);
+
+	if (!characters) return;
 
 	return (
 		<>
