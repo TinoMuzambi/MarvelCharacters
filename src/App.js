@@ -3,9 +3,11 @@ import md5 from "md5";
 
 const App = () => {
 	const [characters, setCharacters] = useState([]);
+	const [fetching, setFetching] = useState(true);
 	const [offset, setOffset] = useState(0);
 	useEffect(() => {
 		const getData = async () => {
+			setFetching(true);
 			try {
 				const ts = 1;
 				const key = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
@@ -20,6 +22,7 @@ const App = () => {
 				);
 				const res = await data.json();
 				setCharacters(res.data.results);
+				setFetching(false);
 			} catch (error) {
 				console.error(error);
 			}
@@ -30,15 +33,13 @@ const App = () => {
 	const prevPage = () => {
 		if (offset === 0) return;
 		setOffset(offset - 100);
-		document.body.scrollIntoView({ behavior: "smooth" });
 	};
 	const nextPage = () => {
 		// if (offset === 100) return
 		setOffset(offset + 100);
-		document.body.scrollIntoView({ behavior: "smooth" });
 	};
 
-	if (!characters) return;
+	if (fetching) return <h1>Loading...</h1>;
 
 	return (
 		<>
