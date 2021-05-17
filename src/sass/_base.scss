@@ -97,6 +97,12 @@ main {
 	form {
 		display: flex;
 
+		@media (max-width: 425px) {
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+		}
+
 		input {
 			font-family: inherit;
 			padding: 0.4rem 1rem;

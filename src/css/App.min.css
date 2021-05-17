@@ -105,6 +105,19 @@ main form {
   display: flex;
 }
 
+@media (max-width: 425px) {
+  main form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 1rem;
+  }
+}
+
 main form input {
   font-family: inherit;
   padding: 0.4rem 1rem;
