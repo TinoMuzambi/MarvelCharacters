@@ -8,6 +8,7 @@ const App = () => {
 	const [fetching, setFetching] = useState(true);
 	const [offset, setOffset] = useState(0);
 	const [nextDisabled, setNextDisabled] = useState(false);
+	const [query, setQuery] = useState("");
 
 	useEffect(() => {
 		const getData = async () => {
@@ -36,7 +37,7 @@ const App = () => {
 				console.error(error);
 			}
 		};
-		getData();
+		// getData();
 	}, [offset]);
 
 	const prevPage = () => {
@@ -59,6 +60,13 @@ const App = () => {
 		<>
 			<main>
 				<h1 className="title">Marvel Characters</h1>
+				<input
+					type="text"
+					id=""
+					placeholder="Search a character"
+					value={query}
+					onChange={(e) => setQuery(e.target.value)}
+				/>
 				<section className="cards">
 					{characters.map((character) => (
 						<div className="card" key={character.id}>
