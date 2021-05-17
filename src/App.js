@@ -30,7 +30,15 @@ const App = () => {
 
 	return (
 		<>
-			<main></main>
+			<main>
+				<section className="cards">
+					{characters.map((character) => (
+						<div className="card" key={character.id}>
+							{character.name}
+						</div>
+					))}
+				</section>
+			</main>
 			<footer>Data provided by Marvel. © 2014 Marvel</footer>
 		</>
 	);
