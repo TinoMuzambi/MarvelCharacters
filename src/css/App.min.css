@@ -185,8 +185,8 @@ main .cards .card {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 2rem;
-  -webkit-box-shadow: 0 0 50px 10px skyblue;
-          box-shadow: 0 0 50px 10px skyblue;
+  -webkit-box-shadow: 0 0 50px 10px skyblue, 0 0 10px 1px inset skyblue;
+          box-shadow: 0 0 50px 10px skyblue, 0 0 10px 1px inset skyblue;
 }
 
 main .cards .card .name {

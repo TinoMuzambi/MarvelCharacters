@@ -141,7 +141,8 @@ main {
 			display: flex;
 			flex-direction: column;
 			gap: 2rem;
-			box-shadow: 0 0 50px 10px rgba($color: $secondary-color, $alpha: 1);
+			box-shadow: 0 0 50px 10px rgba($color: $secondary-color, $alpha: 1),
+				0 0 10px 1px inset rgba($color: $secondary-color, $alpha: 1);
 
 			.name {
 				font-size: 2rem;
