@@ -7,6 +7,7 @@ const App = () => {
 	const [characters, setCharacters] = useState([]);
 	const [fetching, setFetching] = useState(true);
 	const [offset, setOffset] = useState(0);
+
 	useEffect(() => {
 		const getData = async () => {
 			setFetching(true);
@@ -29,7 +30,7 @@ const App = () => {
 				console.error(error);
 			}
 		};
-		getData();
+		// getData();
 	}, [offset]);
 
 	const prevPage = () => {

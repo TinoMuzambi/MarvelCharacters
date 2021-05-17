@@ -12,7 +12,21 @@ body {
   padding: 0 1rem;
 }
 
-.cards {
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+}
+
+main .cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,7 +42,7 @@ body {
   margin-top: 2rem;
 }
 
-.cards .card {
+main .cards .card {
   width: clamp(20rem, 40%, 30rem);
   background: -webkit-gradient(linear, left top, left bottom, from(mediumpurple), to(lightgreen));
   background: linear-gradient(mediumpurple, lightgreen);
@@ -45,11 +59,11 @@ body {
   gap: 2rem;
 }
 
-.cards .card .name {
+main .cards .card .name {
   font-size: 2rem;
 }
 
-.cards .card img {
+main .cards .card img {
   height: 10rem;
   width: 10rem;
   border-radius: 50%;
@@ -61,21 +75,22 @@ body {
   transition: border-color 1s;
 }
 
-.cards .card img:hover, .cards .card img:focus {
+main .cards .card img:hover, main .cards .card img:focus {
   border-color: lightgreen;
 }
 
-.cards .card .desc {
+main .cards .card .desc {
   line-height: 1.2;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.cards .card .wrap:hover .link {
+main .cards .card .wrap:hover .link,
+main .cards .card .wrap:focus .link {
   -webkit-clip-path: circle(200% at 100% 100%);
           clip-path: circle(200% at 100% 100%);
 }
 
-.cards .card .wrap .link {
+main .cards .card .wrap .link {
   display: inline-block;
   text-decoration: none;
   background: mediumpurple;
@@ -92,9 +107,24 @@ body {
   transition: clip-path 1s, -webkit-clip-path 1s;
 }
 
-.cards .card .wrap .link:focus, .cards .card .wrap .link:hover {
-  -webkit-clip-path: circle(200% at 50% 50%);
-          clip-path: circle(200% at 50% 50%);
+main .buttons button {
+  border: none;
+  outline: none;
+  background: mediumpurple;
+  color: white;
+  padding: 1rem;
+  border-radius: 1000px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 0 1rem;
+}
+
+main .buttons button:focus, main .buttons button:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 img {
@@ -105,5 +135,6 @@ img {
 
 footer {
   margin: 2rem 0 0 0;
+  text-align: center;
 }
 /*# sourceMappingURL=App.min.css.map */
