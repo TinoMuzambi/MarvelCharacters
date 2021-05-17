@@ -22,7 +22,7 @@ const App = () => {
 				);
 
 				const data = await fetch(
-					`https://gateway.marvel.com/v1/public/characters?nameStartsWith=spid&limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
+					`https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
 				);
 				const res = await data.json();
 				setCharacters(res.data.results);
@@ -88,7 +88,7 @@ const App = () => {
 				<div className="buttons">
 					<button onClick={prevPage}>Prev Page</button>
 					<button
-						className={nextDisabled && "disabled"}
+						className={nextDisabled ? "disabled" : ""}
 						onClick={nextPage}
 						disabled={nextDisabled}
 					>
