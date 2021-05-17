@@ -43,6 +43,9 @@ const App = () => {
 							<p className="desc">
 								{character.description || "No description provided"}
 							</p>
+							<a href={character?.urls[1]?.url} className="link">
+								Read More
+							</a>
 						</div>
 					))}
 				</section>
