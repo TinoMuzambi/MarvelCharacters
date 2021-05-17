@@ -18,6 +18,7 @@ const App = () => {
 
 	const getData = async () => {
 		setFetching(true);
+		setNextDisabled(false);
 		try {
 			const ts = 1;
 			const key = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
