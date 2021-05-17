@@ -99,11 +99,37 @@ main .title {
   margin-top: 1rem;
 }
 
-main input {
+main form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main form input {
   font-family: inherit;
   padding: 0.4rem 1rem;
   border: solid 2px black;
   outline: none;
+}
+
+main form button {
+  border: none;
+  outline: none;
+  background: black;
+  color: white;
+  padding: 1rem;
+  border-radius: 1000px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin: 0 1rem;
+}
+
+main form button:focus, main form button:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 main .cards {

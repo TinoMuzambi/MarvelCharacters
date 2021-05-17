@@ -37,7 +37,7 @@ const App = () => {
 				console.error(error);
 			}
 		};
-		getData();
+		// getData();
 	}, [offset]);
 
 	const prevPage = () => {
@@ -60,13 +60,16 @@ const App = () => {
 		<>
 			<main>
 				<h1 className="title">Marvel Characters</h1>
-				<input
-					type="text"
-					id=""
-					placeholder="Search a character"
-					value={query}
-					onChange={(e) => setQuery(e.target.value)}
-				/>
+				<form>
+					<input
+						type="text"
+						id=""
+						placeholder="Search a character"
+						value={query}
+						onChange={(e) => setQuery(e.target.value)}
+					/>
+					<button type="submit">Search</button>
+				</form>
 				<section className="cards">
 					{characters.map((character) => (
 						<div className="card" key={character.id}>

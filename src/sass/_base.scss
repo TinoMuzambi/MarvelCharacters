@@ -4,6 +4,23 @@ $primary-color: black;
 $secondary-color: skyblue;
 $text-color: white;
 
+@mixin button {
+	border: none;
+	outline: none;
+	background: $primary-color;
+	color: $text-color;
+	padding: 1rem;
+	border-radius: 1000px;
+	cursor: pointer;
+	transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	margin: 0 1rem;
+
+	&:focus,
+	&:hover {
+		transform: scale(0.9);
+	}
+}
+
 *,
 *::before,
 *::after {
@@ -78,11 +95,19 @@ main {
 		margin-top: 1rem;
 	}
 
-	input {
-		font-family: inherit;
-		padding: 0.4rem 1rem;
-		border: solid 2px $primary-color;
-		outline: none;
+	form {
+		display: flex;
+
+		input {
+			font-family: inherit;
+			padding: 0.4rem 1rem;
+			border: solid 2px $primary-color;
+			outline: none;
+		}
+
+		button {
+			@include button;
+		}
 	}
 
 	.cards {
@@ -155,20 +180,7 @@ main {
 
 	.buttons {
 		button {
-			border: none;
-			outline: none;
-			background: $primary-color;
-			color: $text-color;
-			padding: 1rem;
-			border-radius: 1000px;
-			cursor: pointer;
-			transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-			margin: 0 1rem;
-
-			&:focus,
-			&:hover {
-				transform: scale(0.9);
-			}
+			@include button;
 
 			&.disabled {
 				opacity: 0.5;
