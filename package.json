@@ -1,6 +1,6 @@
 {
-	"name": "boilerplate",
-	"version": "0.1.0",
+	"name": "marvelcharacters",
+	"version": "1.0.0",
 	"private": true,
 	"dependencies": {
 		"md5": "^2.3.0",
