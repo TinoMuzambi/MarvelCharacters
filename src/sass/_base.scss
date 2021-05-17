@@ -28,7 +28,7 @@ body {
 	top: 0;
 	left: 0;
 	z-index: 10;
-	background: #333;
+	background: $primary-color;
 	transition: all 1s ease;
 	opacity: 1;
 }
@@ -37,7 +37,7 @@ body {
 	position: absolute;
 	width: 40vw;
 	height: 40vw;
-	border: 2px solid #a161c6;
+	border: 2px solid $secondary-color;
 	border-top-color: transparent;
 	border-radius: 50%;
 	animation: spinner-content 1s linear infinite;
