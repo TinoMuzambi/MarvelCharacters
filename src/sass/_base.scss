@@ -15,6 +15,10 @@ $text-color: white;
 body {
 	font-family: "Montserrat", sans-serif;
 	padding: 0 1rem;
+
+	@media (max-width: 768px) {
+		text-align: center;
+	}
 }
 
 main {
@@ -73,10 +77,6 @@ main {
 			.desc {
 				line-height: 1.2;
 				font-family: Arial, Helvetica, sans-serif;
-
-				@media (max-width: 768px) {
-					text-align: center;
-				}
 			}
 
 			.wrap {
