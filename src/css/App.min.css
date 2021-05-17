@@ -34,6 +34,7 @@ main .title {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 5px 5px rgba(135, 206, 235, 0.4);
+  margin-top: 1rem;
 }
 
 main .cards {
@@ -49,7 +50,7 @@ main .cards {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 main .cards .card {
@@ -96,6 +97,12 @@ main .cards .card .desc {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@media (max-width: 768px) {
+  main .cards .card .desc {
+    text-align: center;
+  }
+}
+
 main .cards .card .wrap:hover .link,
 main .cards .card .wrap:focus .link {
   -webkit-clip-path: circle(200% at 100% 100%);
@@ -117,6 +124,13 @@ main .cards .card .wrap .link {
   transition: -webkit-clip-path 1s;
   transition: clip-path 1s;
   transition: clip-path 1s, -webkit-clip-path 1s;
+}
+
+@media (max-width: 768px) {
+  main .cards .card .wrap .link {
+    -webkit-clip-path: circle(200% at 100% 100%);
+            clip-path: circle(200% at 100% 100%);
+  }
 }
 
 main .buttons button {
