@@ -7,6 +7,7 @@ const App = () => {
 	const [characters, setCharacters] = useState([]);
 	const [fetching, setFetching] = useState(true);
 	const [offset, setOffset] = useState(0);
+	const [nextDisabled, setNextDisabled] = useState(false);
 
 	useEffect(() => {
 		const getData = async () => {
@@ -25,7 +26,10 @@ const App = () => {
 				);
 				const res = await data.json();
 				setCharacters(res.data.results);
-				if (!res.data.results.length) setOffset(offset - 100);
+				if (!res.data.results.length) {
+					setOffset(offset - 100);
+					setNextDisabled(true);
+				}
 
 				setFetching(false);
 			} catch (error) {
@@ -38,6 +42,7 @@ const App = () => {
 	const prevPage = () => {
 		if (offset === 0) return;
 		setOffset(offset - 100);
+		setNextDisabled(false);
 	};
 	const nextPage = () => {
 		setOffset(offset + 100);
@@ -82,7 +87,9 @@ const App = () => {
 				</section>
 				<div className="buttons">
 					<button onClick={prevPage}>Prev Page</button>
-					<button onClick={nextPage}>Next Page</button>
+					<button onClick={nextPage} disabled={nextDisabled}>
+						Next Page
+					</button>
 				</div>
 			</main>
 			<footer>Data provided by Marvel. © 2014 Marvel</footer>
