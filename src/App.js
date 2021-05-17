@@ -42,7 +42,12 @@ const App = () => {
 		setOffset(offset + 100);
 	};
 
-	if (fetching) return <h1>Loading...</h1>;
+	if (fetching)
+		return (
+			<div class="spinner flex">
+				<div></div>
+			</div>
+		);
 
 	return (
 		<>
