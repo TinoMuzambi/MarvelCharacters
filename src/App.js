@@ -6,16 +6,18 @@ const App = () => {
 		const getData = async () => {
 			try {
 				const ts = 1;
-				const key = process.env.REACT_APP_MARVEL_KEY;
+				const key = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
 				const hash = md5(
 					ts +
 						process.env.REACT_APP_MARVEL_KEY +
 						process.env.REACT_APP_MARVEL_PUBLIC_KEY
 				);
+
 				const data = await fetch(
-					`https://gateway.marvel.com/v1/characters?ts=${ts}&apikey=${key}&hash=${hash}`
+					`http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${key}&hash=${hash}`
 				);
-				console.log(data);
+				const res = await data.json();
+				console.log(res);
 			} catch (error) {
 				console.error(error);
 			}
