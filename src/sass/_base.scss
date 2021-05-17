@@ -7,9 +7,63 @@
 }
 
 body {
-	font-family: sans-serif;
+	font-family: "Montserrat";
 	padding: 0 1rem;
+}
+
+.cards {
 	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	align-items: center;
+	justify-content: center;
+	margin-top: 2rem;
+
+	.card {
+		width: clamp(20rem, 40%, 30rem);
+		background: linear-gradient(lightblue, coral);
+		color: white;
+		padding: 1rem;
+		border-radius: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+
+		.name {
+			font-size: 2rem;
+		}
+
+		img {
+			height: 10rem;
+			width: 10rem;
+			border-radius: 50%;
+			border: 2px solid lightblue;
+			align-self: center;
+		}
+
+		.desc {
+			line-height: 1.2;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.link {
+			display: inline-block;
+			text-decoration: none;
+			background: lightblue;
+			color: white;
+			width: 100%;
+			text-align: center;
+			padding: 1rem;
+			border-radius: 1rem;
+			clip-path: circle(0.5% at 0 0);
+			transition: clip-path 1s;
+
+			&:focus,
+			&:hover {
+				clip-path: circle(200% at 100% 100%);
+			}
+		}
+	}
 }
 
 img {
@@ -18,5 +72,5 @@ img {
 }
 
 footer {
-	margin: 2rem 0rem 0rem 0rem;
+	margin: 2rem 0 0 0;
 }
