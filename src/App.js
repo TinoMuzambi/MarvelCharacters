@@ -37,7 +37,7 @@ const App = () => {
 				console.error(error);
 			}
 		};
-		// getData();
+		getData();
 	}, [offset]);
 
 	const prevPage = () => {

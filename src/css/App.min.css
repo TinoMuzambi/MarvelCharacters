@@ -99,6 +99,13 @@ main .title {
   margin-top: 1rem;
 }
 
+main input {
+  font-family: inherit;
+  padding: 0.4rem 1rem;
+  border: solid 2px black;
+  outline: none;
+}
+
 main .cards {
   display: -webkit-box;
   display: -ms-flexbox;
