@@ -17,7 +17,7 @@ const App = () => {
 					`http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${key}&hash=${hash}`
 				);
 				const res = await data.json();
-				console.log(res);
+				console.log(res.data);
 			} catch (error) {
 				console.error(error);
 			}
@@ -25,7 +25,12 @@ const App = () => {
 		// getData();
 	}, []);
 
-	return "Clean React Boilerplate";
+	return (
+		<>
+			<main></main>
+			<footer>Data provided by Marvel. © 2014 Marvel</footer>
+		</>
+	);
 };
 
 export default App;
