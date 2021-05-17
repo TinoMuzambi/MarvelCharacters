@@ -64,9 +64,11 @@ const App = () => {
 							</span>
 						</div>
 					))}
+				</section>
+				<div className="buttons">
 					<button onClick={prevPage}>Prev Page</button>
 					<button onClick={nextPage}>Next Page</button>
-				</section>
+				</div>
 			</main>
 			<footer>Data provided by Marvel. © 2014 Marvel</footer>
 		</>

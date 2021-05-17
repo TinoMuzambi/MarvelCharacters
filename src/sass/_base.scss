@@ -1,3 +1,7 @@
+$primary-color: mediumpurple;
+$secondary-color: lightgreen;
+$text-color: white;
+
 *,
 *::before,
 *::after {
@@ -21,8 +25,8 @@ body {
 
 	.card {
 		width: clamp(20rem, 40%, 30rem);
-		background: linear-gradient(lightblue, coral);
-		color: white;
+		background: linear-gradient($primary-color, $secondary-color);
+		color: $text-color;
 		padding: 1rem;
 		border-radius: 1rem;
 		display: flex;
@@ -37,8 +41,14 @@ body {
 			height: 10rem;
 			width: 10rem;
 			border-radius: 50%;
-			border: 2px solid lightblue;
+			border: 2px solid $primary-color;
 			align-self: center;
+			transition: border-color 1s;
+
+			&:hover,
+			&:focus {
+				border-color: $secondary-color;
+			}
 		}
 
 		.desc {
@@ -53,8 +63,8 @@ body {
 			.link {
 				display: inline-block;
 				text-decoration: none;
-				background: lightblue;
-				color: white;
+				background: $primary-color;
+				color: $text-color;
 				width: 100%;
 				text-align: center;
 				padding: 1rem;
@@ -64,7 +74,7 @@ body {
 
 				&:focus,
 				&:hover {
-					clip-path: circle(200% at 100% 100%);
+					clip-path: circle(200% at 50% 50%);
 				}
 			}
 		}

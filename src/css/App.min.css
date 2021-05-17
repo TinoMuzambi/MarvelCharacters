@@ -30,8 +30,8 @@ body {
 
 .cards .card {
   width: clamp(20rem, 40%, 30rem);
-  background: -webkit-gradient(linear, left top, left bottom, from(lightblue), to(coral));
-  background: linear-gradient(lightblue, coral);
+  background: -webkit-gradient(linear, left top, left bottom, from(mediumpurple), to(lightgreen));
+  background: linear-gradient(mediumpurple, lightgreen);
   color: white;
   padding: 1rem;
   border-radius: 1rem;
@@ -53,10 +53,16 @@ body {
   height: 10rem;
   width: 10rem;
   border-radius: 50%;
-  border: 2px solid lightblue;
+  border: 2px solid mediumpurple;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  -webkit-transition: border-color 1s;
+  transition: border-color 1s;
+}
+
+.cards .card img:hover, .cards .card img:focus {
+  border-color: lightgreen;
 }
 
 .cards .card .desc {
@@ -72,7 +78,7 @@ body {
 .cards .card .wrap .link {
   display: inline-block;
   text-decoration: none;
-  background: lightblue;
+  background: mediumpurple;
   color: white;
   width: 100%;
   text-align: center;
@@ -87,8 +93,8 @@ body {
 }
 
 .cards .card .wrap .link:focus, .cards .card .wrap .link:hover {
-  -webkit-clip-path: circle(200% at 100% 100%);
-          clip-path: circle(200% at 100% 100%);
+  -webkit-clip-path: circle(200% at 50% 50%);
+          clip-path: circle(200% at 50% 50%);
 }
 
 img {
