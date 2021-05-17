@@ -40,6 +40,9 @@ const App = () => {
 								src={character.thumbnail.path + ".jpg"}
 								alt={character.name}
 							/>
+							<p className="desc">
+								{character.description || "No description provided"}
+							</p>
 						</div>
 					))}
 				</section>
