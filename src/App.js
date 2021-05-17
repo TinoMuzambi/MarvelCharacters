@@ -21,10 +21,12 @@ const App = () => {
 				);
 
 				const data = await fetch(
-					`https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
+					`https://gateway.marvel.com/v1/public/characters?nameStartsWith=spid&limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
 				);
 				const res = await data.json();
 				setCharacters(res.data.results);
+				if (!res.data.results.length) setOffset(offset - 100);
+
 				setFetching(false);
 			} catch (error) {
 				console.error(error);
@@ -38,13 +40,12 @@ const App = () => {
 		setOffset(offset - 100);
 	};
 	const nextPage = () => {
-		// if (offset === 100) return
 		setOffset(offset + 100);
 	};
 
 	if (fetching)
 		return (
-			<div class="spinner flex">
+			<div className="spinner flex">
 				<div></div>
 			</div>
 		);
