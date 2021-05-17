@@ -8,6 +8,20 @@
 }
 
 body {
-  background: red;
+  font-family: sans-serif;
+  padding: 0 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+footer {
+  margin: 2rem 0rem 0rem 0rem;
 }
 /*# sourceMappingURL=App.min.css.map */
