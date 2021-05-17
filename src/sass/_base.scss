@@ -46,21 +46,26 @@ body {
 			font-family: Arial, Helvetica, sans-serif;
 		}
 
-		.link {
-			display: inline-block;
-			text-decoration: none;
-			background: lightblue;
-			color: white;
-			width: 100%;
-			text-align: center;
-			padding: 1rem;
-			border-radius: 1rem;
-			clip-path: circle(0.5% at 0 0);
-			transition: clip-path 1s;
-
-			&:focus,
-			&:hover {
+		.wrap {
+			&:hover .link {
 				clip-path: circle(200% at 100% 100%);
+			}
+			.link {
+				display: inline-block;
+				text-decoration: none;
+				background: lightblue;
+				color: white;
+				width: 100%;
+				text-align: center;
+				padding: 1rem;
+				border-radius: 1rem;
+				clip-path: circle(10% at 0 10%);
+				transition: clip-path 1s;
+
+				&:focus,
+				&:hover {
+					clip-path: circle(200% at 100% 100%);
+				}
 			}
 		}
 	}

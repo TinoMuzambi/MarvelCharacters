@@ -64,7 +64,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.cards .card .link {
+.cards .card .wrap:hover .link {
+  -webkit-clip-path: circle(200% at 100% 100%);
+          clip-path: circle(200% at 100% 100%);
+}
+
+.cards .card .wrap .link {
   display: inline-block;
   text-decoration: none;
   background: lightblue;
@@ -73,15 +78,15 @@ body {
   text-align: center;
   padding: 1rem;
   border-radius: 1rem;
-  -webkit-clip-path: circle(0.5% at 0 0);
-          clip-path: circle(0.5% at 0 0);
+  -webkit-clip-path: circle(10% at 0 10%);
+          clip-path: circle(10% at 0 10%);
   -webkit-transition: -webkit-clip-path 1s;
   transition: -webkit-clip-path 1s;
   transition: clip-path 1s;
   transition: clip-path 1s, -webkit-clip-path 1s;
 }
 
-.cards .card .link:focus, .cards .card .link:hover {
+.cards .card .wrap .link:focus, .cards .card .wrap .link:hover {
   -webkit-clip-path: circle(200% at 100% 100%);
           clip-path: circle(200% at 100% 100%);
 }
