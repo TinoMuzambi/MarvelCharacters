@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import md5 from "md5";
 
 import "./css/App.min.css";
+import Card from "./components/Card";
 
 const App = () => {
 	const [characters, setCharacters] = useState([]);
@@ -84,28 +85,13 @@ const App = () => {
 				</form>
 				<section className="cards">
 					{characters.map((character) => (
-						<div className="card" key={character.id}>
-							<h2 className="name">{character.name}</h2>
-							<img
-								src={
-									character.thumbnail.path + ".jpg" ||
-									"https://media.istockphoto.com/vectors/no-image-available-sign-vector-id922962354?k=6&m=922962354&s=612x612&w=0&h=_KKNzEwxMkutv-DtQ4f54yA5nc39Ojb_KPvoV__aHyU="
-								}
-								alt={character.name}
-							/>
-							<p className="desc">
-								{character.description || "No description provided"}
-							</p>
-							<span className="wrap">
-								<a
-									href={character?.urls[1]?.url}
-									className="link"
-									target="__blank"
-								>
-									Read More
-								</a>
-							</span>
-						</div>
+						<Card
+							key={character.id}
+							name={character.name}
+							thumbnail={character.thumbnail.path + ".jpg"}
+							description={character.description}
+							url={character.urls[1].url}
+						/>
 					))}
 				</section>
 				<div className="buttons">
