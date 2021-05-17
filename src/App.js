@@ -53,7 +53,10 @@ const App = () => {
 						<div className="card" key={character.id}>
 							<h2 className="name">{character.name}</h2>
 							<img
-								src={character.thumbnail.path + ".jpg"}
+								src={
+									character.thumbnail.path + ".jpg" ||
+									"https://media.istockphoto.com/vectors/no-image-available-sign-vector-id922962354?k=6&m=922962354&s=612x612&w=0&h=_KKNzEwxMkutv-DtQ4f54yA5nc39Ojb_KPvoV__aHyU="
+								}
 								alt={character.name}
 							/>
 							<p className="desc">
