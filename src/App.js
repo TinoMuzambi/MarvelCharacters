@@ -11,34 +11,35 @@ const App = () => {
 	const [query, setQuery] = useState("");
 
 	useEffect(() => {
-		const getData = async () => {
-			setFetching(true);
-			try {
-				const ts = 1;
-				const key = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
-				const hash = md5(
-					ts +
-						process.env.REACT_APP_MARVEL_KEY +
-						process.env.REACT_APP_MARVEL_PUBLIC_KEY
-				);
-
-				const data = await fetch(
-					`https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
-				);
-				const res = await data.json();
-				setCharacters(res.data.results);
-				if (!res.data.results.length) {
-					setOffset(offset - 100);
-					setNextDisabled(true);
-				}
-
-				setFetching(false);
-			} catch (error) {
-				console.error(error);
-			}
-		};
 		// getData();
 	}, [offset]);
+
+	const getData = async (query = "") => {
+		setFetching(true);
+		try {
+			const ts = 1;
+			const key = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
+			const hash = md5(
+				ts +
+					process.env.REACT_APP_MARVEL_KEY +
+					process.env.REACT_APP_MARVEL_PUBLIC_KEY
+			);
+
+			const data = await fetch(
+				`https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
+			);
+			const res = await data.json();
+			setCharacters(res.data.results);
+			if (!res.data.results.length) {
+				setOffset(offset - 100);
+				setNextDisabled(true);
+			}
+
+			setFetching(false);
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	const prevPage = () => {
 		if (offset === 0) return;
