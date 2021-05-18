@@ -1,6 +1,6 @@
 {
 	"name": "marvelcharacters",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"private": true,
 	"dependencies": {
 		"md5": "^2.3.0",
