@@ -121,6 +121,9 @@ main {
 
 		button {
 			@include button;
+			background: transparent;
+			color: $primary-color;
+			border: solid 2px $primary-color;
 		}
 	}
 
