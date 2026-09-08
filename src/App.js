@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import md5 from "md5";
 
 import "./css/App.min.css";
 import Card from "./components/Card";
@@ -21,33 +20,29 @@ const App = () => {
 		setFetching(true);
 		setNextDisabled(false);
 		try {
-			const ts = 1;
-			const key = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
-			const hash = md5(
-				ts +
-					process.env.REACT_APP_MARVEL_KEY +
-					process.env.REACT_APP_MARVEL_PUBLIC_KEY
-			);
 			const orderBy = sortDir === "asc" ? "name" : "-name";
+			const params = new URLSearchParams({
+				limit: "100",
+				offset: offset.toString(),
+				orderBy,
+			});
+			if (query.trim()) params.set("nameStartsWith", query.trim());
 
-			const data = query
-				? await fetch(
-						`https://gateway.marvel.com/v1/public/characters?orderBy=${orderBy}&nameStartsWith=${query}&limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
-				  )
-				: await fetch(
-						`https://gateway.marvel.com/v1/public/characters?orderBy=${orderBy}&limit=100&offset=${offset}&ts=${ts}&apikey=${key}&hash=${hash}`
-				  );
+			const response = await fetch(`/api/characters?${params.toString()}`);
+			const payload = await response.json();
+			if (!response.ok) throw new Error(payload.error || "Marvel request failed");
 
-			const res = await data.json();
-			setCharacters(res.data.results);
-			if (!res.data.results.length) {
+			const results = payload.data?.results || [];
+			setCharacters(results);
+			if (!results.length) {
 				setOffset(offset - 100);
 				setNextDisabled(true);
 			}
-
-			setFetching(false);
 		} catch (error) {
 			console.error(error);
+			setCharacters([]);
+		} finally {
+			setFetching(false);
 		}
 	};
 
