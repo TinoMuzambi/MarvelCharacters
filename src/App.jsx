@@ -35,7 +35,7 @@ const App = () => {
 			const results = payload.data?.results || [];
 			setCharacters(results);
 			if (!results.length) {
-				setOffset(offset - 100);
+				if (offset > 0) setOffset(Math.max(0, offset - 100));
 				setNextDisabled(true);
 			}
 		} catch (error) {
@@ -57,7 +57,8 @@ const App = () => {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-		getData();
+		if (offset === 0) getData();
+		else setOffset(0);
 	};
 
 	if (fetching)
@@ -72,14 +73,20 @@ const App = () => {
 			<main>
 				<h1 className="title">Marvel Characters</h1>
 				<form onSubmit={submitHandler}>
+					<label htmlFor="character-search">Search characters</label>
 					<input
 						type="text"
-						id=""
+						id="character-search"
 						placeholder="Search a character"
 						value={query}
 						onChange={(e) => setQuery(e.target.value)}
 					/>
-					<select value={sortDir} onChange={(e) => setSortDir(e.target.value)}>
+					<label htmlFor="sort-direction">Sort direction</label>
+					<select
+						id="sort-direction"
+						value={sortDir}
+						onChange={(e) => setSortDir(e.target.value)}
+					>
 						<option value="asc">asc</option>
 						<option value="desc">desc</option>
 					</select>
@@ -92,7 +99,7 @@ const App = () => {
 							name={character.name}
 							thumbnail={character.thumbnail.path + ".jpg"}
 							description={character.description}
-							url={character.urls[1].url}
+							url={character.urls?.[1]?.url || character.urls?.[0]?.url}
 						/>
 					))}
 				</section>

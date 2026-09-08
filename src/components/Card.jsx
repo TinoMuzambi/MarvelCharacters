@@ -10,11 +10,13 @@ const Card = ({ name, thumbnail, description, url }) => {
 				alt={name}
 			/>
 			<p className="desc">{description || "No description provided"}</p>
-			<span className="wrap">
-				<a href={url} className="link" target="__blank">
-					Read More
-				</a>
-			</span>
+			{url && (
+				<span className="wrap">
+					<a href={url} className="link" target="_blank" rel="noreferrer">
+						Read More
+					</a>
+				</span>
+			)}
 		</div>
 	);
 };
